@@ -1,7 +1,8 @@
 $(function(){
 	var getData = function(search){
-		$('div.results-text').show()
-		$('span.search-terms').text(search)
+		$('input#search-field').val('');
+		$('div.results-text').show();
+		$('span.search-terms').text(search);
 		params = {
 			part: 'snippet',
 			q: search,
@@ -26,7 +27,6 @@ $(function(){
 	}
 
 	var showResults = function(results){
-		var heightArray = []
 		$.each(results, function(index, value){
 			if(value.id.videoId == null) {
 				buildCard(value.id.channelId, index, value);
