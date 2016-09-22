@@ -22,7 +22,7 @@ $(function(){
 			thumb: value.snippet.thumbnails.default.url,
 		}
 		$('div.vid-' + index + '> .card').append(
-					'<a href="https://www.youtube.com/channel/' + id + '"><div><img src="' + params.thumb + '"></div><div>' + (params.description == "" ? 'No description' : params.description) + '</div></a>');
+					'<a href="https://www.youtube.com/channel/' + id + '"><div><img src="' + params.thumb + '"></div><div><p>' + (params.description == "" ? 'No description' : params.description) + '</p></div></a>');
 		return
 	}
 

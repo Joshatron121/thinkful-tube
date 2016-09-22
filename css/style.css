@@ -36,6 +36,14 @@ hr {
 	border-color: black;
 }
 
+img {
+	border: 1px solid white;
+}
+
+div.card p {
+	margin-top: 3px
+}
+
 div.card {
 	border: 1px solid grey;
 	border-radius: 5px;
@@ -48,7 +56,7 @@ div.card {
 	font-size: .75em;
 	background-color: #0066D1;
 	display: none;
-	height: 202px;
+	height: 205px;
 }
 
 main .row {
