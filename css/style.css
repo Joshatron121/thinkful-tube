@@ -1,0 +1,60 @@
+body {
+	background-color: #00ced1;
+}
+
+input.empty {
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+}
+
+header {
+	background-color: #00D16C;
+}
+
+h1 {
+	display: inline;
+	font-size: 3em;
+}
+
+input {
+	border-radius: 5px;
+	float: right;
+	margin-top: 10px;
+	height: 2.5em;
+	font-size: 1em;
+	padding-left: 5px;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+hr {
+	border-color: black;
+}
+
+div.card {
+	border: 1px solid grey;
+	border-radius: 5px;
+	text-align: center;
+	word-wrap: break-word;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: .75em;
+	background-color: #0066D1;
+	display: none;
+	height: 202px;
+}
+
+main .row {
+	margin-top: 20px;
+}
+
+div.results-text{
+	display: none;
+}
