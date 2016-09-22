@@ -1,5 +1,7 @@
 $(function(){
-	var getData = function(search){
+	var nextPageToken = '';
+	var prevPageToken = '';
+	var getData = function(search, page){
 		$('input#search-field').val('');
 		$('div.results-text').show();
 		$('span.search-terms').text(search);
@@ -7,11 +9,16 @@ $(function(){
 			part: 'snippet',
 			q: search,
 			key: 'AIzaSyAysGOyXaQjk2UruWvaSdYjmn3FmH-4h-M',
-			maxResults: '8'
+			maxResults: '8',
+			pageToken: ''
 		};
+		params.pageToken = page;
 		url = 'https://www.googleapis.com/youtube/v3/search'
 		$.getJSON(url, params, function(data){
+			nextPageToken = data.nextPageToken;
+			prevPageToken = data.prevPageToken
 			showResults(data.items);
+			showMore(data);
 		})
 	}
 
@@ -23,7 +30,6 @@ $(function(){
 		}
 		$('div.vid-' + index + '> .card').append(
 					'<a href="https://www.youtube.com/channel/' + id + '"><div><img src="' + params.thumb + '"></div><div><p>' + (params.description == "" ? 'No description' : params.description) + '</p></div></a>');
-		return
 	}
 
 	var showResults = function(results){
@@ -34,13 +40,36 @@ $(function(){
 				buildCard(value.id.videoId, index, value);
 			}
 		})
-		$('div.card').css('height', Math.max.apply(Math, heightArray));
+	}
+
+	var showMore = function(results){
+		console.log(true)
+		$('div.more-results').show();
+		$('div.more-results span').text('')
+		if(results.prevPageToken == null) {
+			$('span.next').text('Next')
+		} else if (results.nextPageToken == null) {
+			$('span.previous').text('Prev')
+		} else {
+			$('span.next').text(' Next')
+			$('span.previous').text('Prev \\')
+		}
 	}
 
 	$('input').keyup(function(event){
 		if(event.which == 13) {
 			$('div.card').children().remove();
 			getData($('input#search-field').val());
+		}
+	})
+
+	$('span').on('click', function(event){
+		if($(this).hasClass('previous')){
+			$('div.card').children().remove();
+			getData($('span.search-terms').text(), prevPageToken);
+		} else if($(this).hasClass('next')){
+			$('div.card').children().remove();
+			getData($('span.search-terms').text(), nextPageToken);
 		}
 	})
 })

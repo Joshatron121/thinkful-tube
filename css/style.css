@@ -2,12 +2,6 @@ body {
 	background-color: #00ced1;
 }
 
-input.empty {
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	text-decoration: inherit;
-}
 
 header {
 	background-color: #00D16C;
@@ -40,8 +34,19 @@ img {
 	border: 1px solid white;
 }
 
-div.card p {
-	margin-top: 3px
+main .row {
+	margin-top: 20px;
+}
+
+div.results-text{
+	display: none;
+}
+
+input.empty {
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
 }
 
 div.card {
@@ -59,10 +64,18 @@ div.card {
 	height: 205px;
 }
 
-main .row {
-	margin-top: 20px;
+div.card p {
+	margin-top: 3px
 }
 
-div.results-text{
+div.more-results {
 	display: none;
+}
+
+div.more-results h3 {
+	display: inline;
+}
+
+div.more-results span {
+	cursor: pointer;
 }
