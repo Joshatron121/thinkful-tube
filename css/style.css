@@ -78,4 +78,5 @@ div.more-results h3 {
 
 div.more-results span {
 	cursor: pointer;
+	text-decoration: underline;
 }
