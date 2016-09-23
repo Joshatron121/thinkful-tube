@@ -46,11 +46,16 @@ $(function(){
 		console.log(true)
 		$('div.more-results').show();
 		$('div.more-results span').text('')
-		if(results.prevPageToken == null) {
+		if(results.nextPageToken == null && results.prevPageToken == null) {
+			$('div.more-results h3').text('No More Results')
+		} else if (results.prevPageToken == null) {
+			$('div.more-results h3').text('More Results');
 			$('span.next').text('Next')
 		} else if (results.nextPageToken == null) {
+			$('div.more-results h3').text('More Results');
 			$('span.previous').text('Prev')
 		} else {
+			$('div.more-results h3').text('More Results');
 			$('span.next').text(' Next')
 			$('span.previous').text('Prev \\')
 		}
